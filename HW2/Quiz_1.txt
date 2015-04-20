@@ -1,0 +1,101 @@
+Quiz 1
+
+--------------------------------------------------------------------
+Q1: Is there any compile error with the following code (if any)?
+
+	unsigned int Arr[16];
+	3[Arr] = 7; 
+ 
+Explain:
+
+ Description is wrong. You should write ike below:
+
+	unsigned int Arr[16];
+	Arr[3] = 7; 
+
+
+--------------------------------------------------------------------
+Q2: What is the difference between the following 3 statements? 
+
+const int * px; 
+int const * px; 
+int * const px; 
+
+The meanings of first and second one are the same, and the both statement cannot
+change the value of pointer(Dereference), but can change the address value.
+The third one cannot change the address value of pointer.
+
+Is there any compile error for the following cases?
+
+case1: 
+
+int x = 13; 
+const int * px; 
+px = & x; 
+
+case 2: 
+
+int x = 13; 
+int const * px; 
+px = & x; 
+
+case 3: 
+
+int x = 13; 
+int * const px; 
+px = & x; 
+
+Explain:
+
+Case1 and 2 has no error during compile. But case3 will cause error.
+Case3 declare the pointer px to const, but at "px =&x;" statement attempt to
+change the value of pointer, so that compiler will complain about it.
+
+
+--------------------------------------------------------------------
+Q3: Write a function to set or clear ith bit of a 32-bit register. 
+	Where ith (0-based) := {0, 1, 2, Åc, 31 } 
+
+void reg_set(volatile unsigned int * pReg, int ith) 
+{ 
+
+		*(pReg+ith) = 1;
+
+} 
+
+void reg_clear(volatile unsigned int * pReg, int ith) 
+{ 
+
+		*(pReg+ith) = 0;
+
+} 
+
+
+
+--------------------------------------------------------------------
+Q4: Write a swap function in C.
+void swap(unsigned int * px, unsigned int *py) { 
+
+	int temp;
+
+	temp = *px;
+	*px = *py;
+	*py = temp;
+
+} 
+
+--------------------------------------------------------------------
+Q5:	What is the output of the following code? (Given: sizeof(unsigned int) is 4) Page 34 
+
+unsigned int Arr[16]; 
+unsigned int a0 = (unsigned int) &Arr[0]; 
+unsigned int a3 = (unsigned int) &Arr[3]; 
+printf(Åg%d\nÅh, a3 - a0); 
+
+
+
+
+
+
+
+END
